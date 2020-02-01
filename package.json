@@ -1,0 +1,22 @@
+{
+  "name": "live_swag_app_happyhour",
+  "version": "1.0.0",
+  "description": "swag 限時免費",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cedriccefc2002/live_swag_app_happyhour.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cedriccefc2002/live_swag_app_happyhour/issues"
+  },
+  "homepage": "https://github.com/cedriccefc2002/live_swag_app_happyhour#readme",
+  "devDependencies": {
+    "@types/node": "12.12.6"
+  }
+}
