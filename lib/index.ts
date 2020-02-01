@@ -24,9 +24,11 @@ export async function downloadMutilStream(urls: string[], filename: string): Pro
     stream.close();
 }
 
-export async function margeMedia(id: string): Promise<void> {
+export async function margeMedia(id: string, title: string = "", artist: string = ""): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-        exec(`ffmpeg -y -i ${id}.m4v -i ${id}.m4a -c copy -map 0:v:0 -map 1:a:0 ${id}.mp4`, { }, (error) => {
+        const cmd = `ffmpeg -y -i ${id}.m4v -i ${id}.m4a -c copy -map 0:v:0 -map 1:a:0 -metadata title="${title}" -metadata artist="${artist}" ${id}.mp4`;
+        logger.info(`margeMedia ${cmd}`);
+        exec(cmd, {}, (error) => {
             if (error) {
                 reject(error);
             } else {
@@ -82,7 +84,7 @@ if (module.parent === null) {
                 "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-1-00007.m4s",
                 "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-1-00008.m4s",
                 "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-1-00009.m4s",
-                "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-1-00010.m4s"
+                "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-1-00010.m4s",
             ], "./out/5da07e2839b5763444a4cacb.m4v");
             await downloadMutilStream([
                 "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-3-00000.mp4",
@@ -97,11 +99,11 @@ if (module.parent === null) {
                 "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-3-00009.m4s",
                 "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-3-00010.m4s",
                 "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-3-00011.m4s",
-                "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-3-00012.m4s"
+                "https://asia.messages.swag.live/5da07e2839b5763444a4cacb-3-00012.m4s",
             ], "./out/5da07e2839b5763444a4cacb.m4a");
-            await margeMedia(`./out/5da07e2839b5763444a4cacb`);
-            await promises.unlink("./out/5da07e2839b5763444a4cacb.m4v");
-            await promises.unlink("./out/5da07e2839b5763444a4cacb.m4a");
+            await margeMedia(`./out/5da07e2839b5763444a4cacb`, "ddddd", "ddddda");
+            // await promises.unlink("./out/5da07e2839b5763444a4cacb.m4v");
+            // await promises.unlink("./out/5da07e2839b5763444a4cacb.m4a");
         } catch (error) {
             logger.error(error);
         }

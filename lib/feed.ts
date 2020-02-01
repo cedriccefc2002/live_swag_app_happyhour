@@ -36,5 +36,5 @@ if (module.parent === null) {
     });
     (async () => {
         await getFeeds();
-    })().catch((error) => { console.error(error); }).finally(() => { process.exit(); });
+    })().finally(() => { process.exit(); });
 }
