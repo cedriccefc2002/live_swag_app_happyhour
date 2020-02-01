@@ -104,5 +104,6 @@ dist
 .tern-port
 
 **/*.js
+**/*.mp4
 
 package-lock.json

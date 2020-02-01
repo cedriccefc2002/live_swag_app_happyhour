@@ -11,12 +11,20 @@
     "url": "git+https://github.com/cedriccefc2002/live_swag_app_happyhour.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cedriccefc2002/live_swag_app_happyhour/issues"
   },
   "homepage": "https://github.com/cedriccefc2002/live_swag_app_happyhour#readme",
   "devDependencies": {
-    "@types/node": "12.12.6"
+    "@types/cheerio": "^0.22.16",
+    "@types/log4js": "^2.3.5",
+    "@types/node": "12.12.6",
+    "@types/request": "^2.48.4"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "log4js": "^6.1.1",
+    "request": "^2.88.0"
   }
 }
